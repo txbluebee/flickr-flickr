@@ -4,7 +4,6 @@
 
 <%= simple_form_for [@user, @image], url: image_path do |form| %>
   <%= form.input :title, as: :string %>
-  <%=  %>
   <%= form.input :attachment, as: :file %>
 
   <%= form.submit class: 'btn btn-success'%>
