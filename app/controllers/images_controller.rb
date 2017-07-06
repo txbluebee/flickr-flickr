@@ -49,9 +49,6 @@ class ImagesController < ApplicationController
     @image.tags do |tag|
       tag.destroy
     end
-    @image.comments do |comment|
-      comment.destroy
-    end
     @image.destroy
     redirect_to images_path
   end

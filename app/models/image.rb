@@ -4,6 +4,6 @@ class Image < ApplicationRecord
   validates_attachment_content_type :attachment, content_type: /\Aimage\/.*\z/
   belongs_to :user
   has_and_belongs_to_many :tags
-  has_many :comments
+  has_many :comments, dependent: :destroy
   scope :tag_images, -> (user_parameter) { joins(:tags).where(tags: {name: user_parameter})}
 end
