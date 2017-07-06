@@ -1,0 +1,10 @@
+<h1>Comments#new</h1>
+
+<%= render('layouts/errors', :object => @new_comment) %>
+
+<%= simple_form_for [@image, @new_comment], url: image_comments_path(@image, @new_comment) do |form| %>
+  <p>Author: <%= current_user.name %> </p>
+  <%= form.input :author, :as => :hidden, :input_html => {:value => current_user.name} %>
+  <%= form.input :content %>
+  <%= form.submit class: 'btn btn-success'%>
+<% end %>

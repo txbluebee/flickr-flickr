@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :authorize, only: [:new, :edit]
 
   def index
     @images = Image.all
@@ -47,15 +48,12 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.tags do |tag|
       tag.destroy
-    end  
+    end
     @image.destroy
     redirect_to images_path
   end
 
   private
-
-# Use strong_parameters for attribute whitelisting
-# Be sure to update your create() and update() controller methods.
 
   def image_params
     params.require(:image).permit(:attachment, :title, :user_id)

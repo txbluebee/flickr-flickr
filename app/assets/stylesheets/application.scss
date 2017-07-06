@@ -1,10 +1,28 @@
 
 @import "bootstrap";
 
-.user-button {
-  background-color: inherit;
-  border: 1px solid white;
-  padding: 5px 15px;
-  color: white;
-  cursor: pointer;
+// .user-button {
+//   background-color: inherit;
+//   border: 1px solid white;
+//   padding: 5px 15px;
+//   color: white;
+//   cursor: pointer;
+// }
+
+// Image index
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card a img {
+  margin-bottom: .75rem;
+  height: 250px;
+}
+
+.card-text {
+  font-size: 85%;
 }

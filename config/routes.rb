@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #User authentication
   root 'images#index'
   get '/signup' => 'users#new'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   #images
   resources :images do
     resources :tags, except: [:index, :show]
+    resources :comments, except: [:index, :show]
   end
 
   #users

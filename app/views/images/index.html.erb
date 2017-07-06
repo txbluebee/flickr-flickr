@@ -1,13 +1,15 @@
-<h1>Images#index</h1>
-<ul>
-  <% @images.each do |image|  %>
-    <li>
-      <%= image.title  %>
-    </li>
-    <li>
-      <%= link_to image do %>
-        <%=image_tag image.attachment.url(:medium) %>
-      <% end %>  
-    </li>
-  <% end %>
-</ul>
+
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <% @images.each do |image|  %>
+        <div class="card">
+          <%= link_to image do %>
+            <%= image_tag image.attachment.url(:medium) %>
+          <% end %>
+          <p class="card-text"> <b><%= image.title %></b> | submitted by <i><%= image.user.name %> </i></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

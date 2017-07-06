@@ -11,9 +11,6 @@
 
   <body>
     <nav class="navbar navbar-expand navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <a class="navbar-brand" href="#">Dashboard</a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -25,7 +22,7 @@
             <a class="nav-link" href="/images/new">Add Image</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <%= link_to 'User Profile', current_user, class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
@@ -51,12 +48,6 @@
       </div>
     </section>
     <div class="container">
-
-      <% if current_user %>
-        <%= current_user.name %> | <%= link_to "Sign out", '/signout' %>
-      <% else %>
-        <%= link_to "Sign up", 'signup' %> | <%= link_to "Sign in", '/signin' %>
-      <% end %>
 
       <%= flash[:alert] %>
       <%= flash[:notice] %>
