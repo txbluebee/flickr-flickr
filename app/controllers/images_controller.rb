@@ -45,7 +45,9 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
-
+    @image.tags do |tag|
+      tag.destroy
+    end  
     @image.destroy
     redirect_to images_path
   end
@@ -58,8 +60,4 @@ class ImagesController < ApplicationController
   def image_params
     params.require(:image).permit(:attachment, :title, :user_id)
   end
-
-  def get_all_tags
-    @tags = User.all
-  end  
 end

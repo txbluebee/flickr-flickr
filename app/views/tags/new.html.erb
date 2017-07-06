@@ -1,0 +1,4 @@
+<%= simple_form_for [@image, @new_tag], url: image_tags_path(@image) do |form| %>
+  <%= form.input :name, collection: @usernames%>
+  <%= form.submit class: 'btn btn-success'%>
+<% end %>

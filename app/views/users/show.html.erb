@@ -1,0 +1,9 @@
+<h1> Hi, <%= current_user.name %> </h1>
+
+<p>Images you were tagged with: </p>
+
+<ul>
+  <% @images.tag_images(current_user.name).each do |image| %>
+  <li><%=image_tag image.attachment.url(:medium) %></li>
+  <% end %>
+</ul>

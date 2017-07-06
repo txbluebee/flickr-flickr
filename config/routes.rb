@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
 
   #images
-  resources :images
+  resources :images do
+    resources :tags, except: [:index, :show]
+  end
+
+  #users
+  resources :users
+
 end

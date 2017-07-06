@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  def new
-   @user = User.new
- end
 
- def create
+  def new
+    @user = User.new
+  end
+
+  def create
    @user = User.new(user_params)
    if @user.save
      flash[:notice] = "You've successfully signed up!"
@@ -13,11 +14,16 @@ class UsersController < ApplicationController
      flash[:alert] = "There was a problem signing up."
      redirect_to '/signup'
    end
- end
+  end
 
- private
+  def show
+    @images = Image.all
+  end
 
- def user_params
+
+  private
+
+  def user_params
    params.require(:user).permit(:email, :name, :password, :password_confirmation)
- end
+  end
 end

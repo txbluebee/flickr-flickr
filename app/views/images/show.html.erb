@@ -2,8 +2,24 @@
 
 <%=image_tag @image.attachment.url(:medium) %>
 <h6><%= @image.title  %> by <%= @image_owner.name %></h6>
+<% if @image.tags.any? %>
+<ul>
+  <% @image.tags.each do |tag| %>
+  <li><%= tag.name %>
+    <%= link_to(image_tag_path(@image, tag), :method => 'delete')  do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+<p>
+  No tags yet
+</p>
+<% end %>
 
-
+<%=  link_to 'New Tag', new_image_tag_path(@image), :class => 'btn btn-sm' %>
+<br>
 <% if @current_user == @image_owner %>
 <%= link_to 'Edit Image', edit_image_path, :class => 'btn btn-success'  %>
   <%= link_to 'Delete Image', image_path(@image, @image_owner), :method =>'delete', :data => {:confirm => 'You sure?'}, :class => 'btn btn-danger'%>
