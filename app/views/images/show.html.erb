@@ -22,7 +22,7 @@
 <br>
 <% if @current_user == @image_owner %>
 <%= link_to 'Edit Image', edit_image_path, :class => 'btn btn-success'  %>
-  <%= link_to 'Delete Image', image_path(@image, @image_owner), :method =>'delete', :data => {:confirm => 'You sure?'}, :class => 'btn btn-danger'%>
+  <%= link_to 'Delete Image', @image, :method =>'delete', :data => {:confirm => 'You sure?'}, :class => 'btn btn-danger'%>
 <% end %>
 
 <h3>Comment: </h3>
