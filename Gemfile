@@ -31,11 +31,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 gem 'faker'
 gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'wdm', '>= 0.1.0' 
 
 
 # Use Capistrano for deployment
